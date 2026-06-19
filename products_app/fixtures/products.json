@@ -1,0 +1,132 @@
+[
+  {
+    "model": "products_app.product",
+    "pk": 1,
+    "fields": {
+      "name": "iPhone 14",
+      "image": "https://content1.rozetka.com.ua/goods/images/big/221203654.jpg",
+      "description": "Apple smartphone",
+      "price": 39999.00,
+      "stock": 10,
+      "category": "electronics",
+      "discount": 10
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 2,
+    "fields": {
+      "name": "Samsung Galaxy S23",
+      "image": "https://content.rozetka.com.ua/goods/images/big/487792065.jpg",
+      "description": "Samsung flagship phone",
+      "price": 35999.00,
+      "stock": 8,
+      "category": "electronics",
+      "discount": 12
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 3,
+    "fields": {
+      "name": "MacBook Pro 14",
+      "image": "https://content1.rozetka.com.ua/goods/images/big_tile/655338574.jpg",
+      "description": "Apple laptop M2",
+      "price": 89999.00,
+      "stock": 5,
+      "category": "electronics",
+      "discount": 5
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 4,
+    "fields": {
+      "name": "Dell XPS 13",
+      "image": "https://i.dell.com/sites/image",
+      "description": "Ultrabook laptop",
+      "price": 54999.00,
+      "stock": 6,
+      "category": "electronics",
+      "discount": 7
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 5,
+    "fields": {
+      "name": "Nike Air Max",
+      "image": "https://static.nike.com/a/images",
+      "description": "Running shoes",
+      "price": 4999.00,
+      "stock": 20,
+      "category": "clothing",
+      "discount": 15
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 6,
+    "fields": {
+      "name": "Adidas Hoodie",
+      "image": "https://assets.adidas.com/images",
+      "description": "Warm hoodie",
+      "price": 2999.00,
+      "stock": 15,
+      "category": "clothing",
+      "discount": 10
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 7,
+    "fields": {
+      "name": "Harry Potter Book Set",
+      "image": "https://m.media-amazon.com/images",
+      "description": "Fantasy books collection",
+      "price": 2499.00,
+      "stock": 12,
+      "category": "books",
+      "discount": 20
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 8,
+    "fields": {
+      "name": "The Lean Startup",
+      "image": "https://m.media-amazon.com/images",
+      "description": "Business book",
+      "price": 899.00,
+      "stock": 25,
+      "category": "books",
+      "discount": 5
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 9,
+    "fields": {
+      "name": "Office Chair",
+      "image": "https://images.ikea.com",
+      "description": "Ergonomic chair",
+      "price": 7999.00,
+      "stock": 7,
+      "category": "furniture",
+      "discount": 10
+    }
+  },
+  {
+    "model": "products_app.product",
+    "pk": 10,
+    "fields": {
+      "name": "Wooden Desk",
+      "image": "https://images.ikea.com",
+      "description": "Study desk",
+      "price": 9999.00,
+      "stock": 4,
+      "category": "furniture",
+      "discount": 8
+    }
+  }
+]
