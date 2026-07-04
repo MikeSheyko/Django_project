@@ -4,6 +4,22 @@
     padding: 10px;
 }
 
+.products-table td img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    overflow: visible;
+}
+
+.products-table td img:hover {
+    transform: scale(2);
+    position: relative;
+    z-index: 100;
+}
+
+
+
 /* .card {
     width: 100% !important;
 } */

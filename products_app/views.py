@@ -62,6 +62,26 @@ def create_product(request):
     )
 
 
+def edit_product(request, product_id):
+    product = get_object_or_404(Product, id=product_id)
+
+    if request.method == "POST":
+        form = ProductForm(request.POST, instance=product)
+
+        if form.is_valid():
+            form.save()
+            return redirect("admin_panel")
+
+    else:
+        form = ProductForm(instance=product)
+
+    return render(
+        request,
+        "products/edit_product.html",
+        {"form": form, "product": product},
+    )
+
+
 def delete_product(request, product_id):
 
     product = get_object_or_404(Product, id=product_id)
