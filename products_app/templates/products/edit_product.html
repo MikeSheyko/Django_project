@@ -1,32 +1,48 @@
 {% extends "layout.html" %}
-
 {% block content %}
-
-<h1>Edit Product</h1>
-
-<form method="post">
-    {% csrf_token %}
-
-    {% for field in form %}
-        <div class="mb-3">
-            {{ field.label_tag }}
-            {{ field }}
-
-            {% if field.errors %}
-                <div class="text-danger">
-                    {{ field.errors }}
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <h2 class="mb-4">
+            <i class="bi bi-pencil-square"></i>
+            Edit Product
+        </h2>
+        {% if product.image %}
+            <div class="text-center mb-4">
+                <img
+                    src="{{ product.image.url }}"
+                    alt="{{ product.name }}"
+                    class="img-thumbnail"
+                    style="max-height:250px;">
+            </div>
+        {% endif %}
+        <form
+            method="POST"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="mb-3">
+                    {{ field.label_tag }}
+                    {{ field }}
+                    {% if field.errors %}
+                        <div class="text-danger mt-1">
+                            {{ field.errors }}
+                        </div>
+                    {% endif %}
                 </div>
-            {% endif %}
-        </div>
-    {% endfor %}
-
-    <button type="submit" class="btn btn-primary">
-        Save
-    </button>
-
-    <a href="{% url 'admin_panel' %}" class="btn btn-secondary">
-        Cancel
-    </a>
-</form>
-
+            {% endfor %}
+            <button
+                type="submit"
+                class="btn btn-primary">
+                <i class="bi bi-save-fill"></i>
+                Save
+            </button>
+            <a
+                href="{% url 'admin_panel' %}"
+                class="btn btn-secondary">
+                Cancel
+            </a>
+        </form>
+    </div>
+</div>
 {% endblock %}
+
