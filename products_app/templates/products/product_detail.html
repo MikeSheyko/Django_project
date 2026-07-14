@@ -1,74 +1,78 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="row">
-    <div class="col-lg-6">
-        {% if product.image %}
-            <img
-                src="{{ product.image.url }}"
-                alt="{{ product.name }}"
-                class="img-fluid rounded shadow">
-        {% else %}
-            <div
-                class="bg-light rounded d-flex justify-content-center align-items-center shadow"
-                style="height:450px;">
-                <i class="bi bi-image text-secondary"
-                   style="font-size:7rem;"></i>
-            </div>
-        {% endif %}
+<div class="row g-5">
+  <div class="col-lg-6">
+    {% if product.image %}
+    <div class="bg-light rounded shadow d-flex justify-content-center align-items-center"
+         style="height:450px;">
+      <img
+        src="{{ product.image.url }}"
+        alt="{{ product.name }}"
+        class="img-fluid"
+        style="max-height:400px; max-width:100%; object-fit:contain; padding:20px;">
     </div>
-    <div class="col-lg-6">
-        <span class="badge bg-primary fs-6 mb-3">
-            {{ product.get_category_display }}
+    {% else %}
+    <div
+      class="bg-light rounded shadow d-flex justify-content-center align-items-center"
+      style="height:450px;">
+
+      <i class="bi bi-image text-secondary"
+         style="font-size:7rem;"></i>
+    </div>
+    {% endif %}
+  </div>
+  <div class="col-lg-6">
+    <span class="badge bg-primary fs-6 mb-3">
+      {{ product.get_category_display }}
+    </span>
+    <h1 class="fw-bold">
+      {{ product.name }}
+    </h1>
+    <h2 class="text-success my-3">
+      ${{ product.price }}
+    </h2>
+    <hr>
+    <h5>
+      Description
+    </h5>
+    <p class="text-muted">
+      {{ product.description }}
+    </p>
+    <hr>
+    <div class="row mb-4">
+      <div class="col-6">
+        <strong>Stock</strong>
+        <br>
+        {% if product.stock > 0 %}
+        <span class="badge bg-success">
+          {{ product.stock }} available
         </span>
-        <h1 class="fw-bold">
-            {{ product.name }}
-        </h1>
-        <h2 class="text-success my-3">
-            ${{ product.price }}
-        </h2>
-        <hr>
-        <p>
-            <strong>Description</strong>
-        </p>
-        <p class="text-muted">
-            {{ product.description }}
-        </p>
-        <hr>
-        <div class="row mb-4">
-            <div class="col-6">
-                <strong>Stock</strong>
-                <br>
-                {% if product.stock > 0 %}
-                    <span class="badge bg-success">
-                        {{ product.stock }} available
-                    </span>
-                {% else %}
-                    <span class="badge bg-danger">
-                        Out of stock
-                    </span>
-                {% endif %}
-            </div>
-            <div class="col-6">
-                <strong>Discount</strong>
-                <br>
-                <span class="badge bg-warning text-dark">
-                    {{ product.discount }}%
-                </span>
-            </div>
-        </div>
-        <a
-            href="{% url 'product_list' %}"
-            class="btn btn-outline-secondary">
-            <i class="bi bi-arrow-left"></i>
-            Back
-        </a>
-        <a
-            href="{% url 'edit_product' product.id %}"
-            class="btn btn-primary">
-            <i class="bi bi-pencil-fill"></i>
-            Edit
-        </a>
+        {% else %}
+        <span class="badge bg-danger">
+          Out of stock
+        </span>
+        {% endif %}
+      </div>
+      <div class="col-6">
+        <strong>Discount</strong>
+        <br>
+        <span class="badge bg-warning text-dark">
+          {{ product.discount }}%
+        </span>
+      </div>
     </div>
+    <a
+      href="{% url 'product_list' %}"
+      class="btn btn-outline-secondary">
+      <i class="bi bi-arrow-left"></i>
+      Back
+    </a>
+    <a
+      href="{% url 'edit_product' product.id %}"
+      class="btn btn-primary">
+      <i class="bi bi-pencil-fill"></i>
+      Edit
+    </a>
+  </div>
 </div>
 {% endblock %}
-

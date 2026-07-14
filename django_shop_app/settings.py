@@ -10,7 +10,15 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+load_dotenv(BASE_DIR / '.env')  # Load environment variables from .env file
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -117,9 +125,33 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+STATICFILES_DIRS = [BASE_DIR / "static",]
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+# ----- Azure Blob Storage Settings -----
+AZURE_CONTAINER_MEDIA = "media"
+AZURE_CONTAINER_STATIC = "static"
+
+AZURE_ACCOUNT_NAME = "djangostorage"
+AZURE_ACCOUNT_KEY = os.getenv("AZURE_ACCOUNT_KEY")
+
+STORAGES = {
+    "default": {
+        "BACKEND": "storages.backends.azure_storage.AzureStorage",
+        "OPTIONS": {
+            "account_name": AZURE_ACCOUNT_NAME,
+            "account_key": AZURE_ACCOUNT_KEY,
+            "azure_container": AZURE_CONTAINER_MEDIA,
+        },
+    },
+    "staticfiles": {
+        "BACKEND": "storages.backends.azure_storage.AzureStorage",
+        "OPTIONS": {
+            "account_name": AZURE_ACCOUNT_NAME,
+            "account_key": AZURE_ACCOUNT_KEY,
+            "azure_container": AZURE_CONTAINER_STATIC,
+        },
+    }
+}
