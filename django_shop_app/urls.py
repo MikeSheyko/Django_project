@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from products_app import views
 from django.conf import settings
 from django.conf.urls.static import static
@@ -9,7 +9,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.product_list, name="product_list"),
     path("<int:product_id>/", views.product_detail, name="product_detail"),
-    path("cart/", views.cart, name="cart"),
+    path("cart/", include("cart_app.urls")),
     path("about/", views.about, name="about"),
     path("dashboard/", views.admin_panel, name="admin_panel"),
     path("dashboard/create/", views.create_product, name="create_product"),

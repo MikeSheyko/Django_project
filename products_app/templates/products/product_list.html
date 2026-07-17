@@ -9,9 +9,7 @@
 
 <!-- Carousel -->
 
-<div id="shopCarousel"
-     class="carousel slide carousel-fade shadow rounded overflow-hidden mb-5"
-     data-bs-ride="carousel">
+<div id="shopCarousel" class="carousel slide carousel-fade shadow rounded overflow-hidden mb-5" data-bs-ride="carousel">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#shopCarousel" data-bs-slide-to="0" class="active"></button>
     <button type="button" data-bs-target="#shopCarousel" data-bs-slide-to="1"></button>
@@ -19,30 +17,24 @@
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="https://picsum.photos/1400/500?random=101"
-           class="d-block w-100"
-           style="height:500px; object-fit:cover;"
-           alt="Electronics">
+      <img src="https://picsum.photos/1400/500?random=101" class="d-block w-100" style="height:500px; object-fit:cover;"
+        alt="Electronics">
       <div class="carousel-caption text-start mb-5">
         <h2 class="display-4 fw-bold">Electronics Sale</h2>
         <p class="lead">Save up to 50% on selected products.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://picsum.photos/1400/500?random=102"
-           class="d-block w-100"
-           style="height:500px; object-fit:cover;"
-           alt="Fashion">
+      <img src="https://picsum.photos/1400/500?random=102" class="d-block w-100" style="height:500px; object-fit:cover;"
+        alt="Fashion">
       <div class="carousel-caption text-start mb-5">
         <h2 class="display-4 fw-bold">New Fashion Collection</h2>
         <p class="lead">Fresh arrivals for every season.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="https://picsum.photos/1400/500?random=103"
-           class="d-block w-100"
-           style="height:500px; object-fit:cover;"
-           alt="Books">
+      <img src="https://picsum.photos/1400/500?random=103" class="d-block w-100" style="height:500px; object-fit:cover;"
+        alt="Books">
       <div class="carousel-caption text-start mb-5">
         <h2 class="display-4 fw-bold">Best Books</h2>
         <p class="lead">Discover your next favourite book.</p>
@@ -65,16 +57,14 @@
     <div class="card h-100 shadow-sm border-0">
       {% if product.image %}
       <div class="bg-light d-flex justify-content-center align-items-center" style="height:250px;">
-        <img src="{{ product.image.url }}"
-             alt="{{ product.name }}"
-             class="img-fluid"
-             style="max-height:220px; max-width:100%; object-fit:contain; padding:15px;">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid"
+          style="max-height:220px; max-width:100%; object-fit:contain; padding:15px;">
       </div>
       {% else %}
       <div class="bg-light d-flex justify-content-center align-items-center" style="height:250px;">
-        <img src="https://img.magnific.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
-             alt="{{ product.name }}"
-             style="width:120px;">
+        <img
+          src="https://img.magnific.com/free-vector/illustration-gallery-icon_53876-27002.jpg?semt=ais_hybrid&w=740&q=80"
+          alt="{{ product.name }}" style="width:120px;">
       </div>
       {% endif %}
       <div class="card-body d-flex flex-column">
@@ -94,11 +84,16 @@
           <p class="mb-3">
             <strong>Stock:</strong> {{ product.stock }}
           </p>
-          <a href="{% url 'product_detail' product.id %}"
-             class="btn btn-primary w-100">
-            <i class="bi bi-eye-fill"></i>
-            View Details
-          </a>
+          <div class="d-grid gap-2">
+            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-primary">
+              <i class="bi bi-eye-fill"></i>
+              View Details
+            </a>
+            <a href="{% url 'add_to_cart' product.id %}" class="btn btn-success">
+              <i class="bi bi-cart-plus-fill"></i>
+              Add to Cart
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -108,11 +103,8 @@
 
 {% else %}
 <div class="text-center py-5">
-  <img
-      src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-illustration-svg-download-png-6632286.png"
-      alt="No products"
-      class="img-fluid"
-      style="max-width:350px;">
+  <img src="https://cdni.iconscout.com/illustration/premium/thumb/no-product-illustration-svg-download-png-6632286.png"
+    alt="No products" class="img-fluid" style="max-width:350px;">
   <h3 class="mt-4">
     No products found
   </h3>
